@@ -7,5 +7,17 @@ package Controller;
  */
 
 public enum Commands {
-	R,L,M;
+	R("R"),
+	L("L"),
+	M("M");
+	
+	private String command;
+	
+	Commands(String command){
+		this.command = command;
+	}
+	
+	public String getCommand() {
+		return this.command;
+	}
 }
