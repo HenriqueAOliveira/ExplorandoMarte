@@ -1,22 +1,24 @@
 package Probe;
 
+import Location.CardinalPoints;
+
 public class Probe {
 	private int axis_x;
 	private int axis_y;
-	private char cardinal;
+	private CardinalPoints orientation;
 
-	public Probe(int axis_x, int axis_y, char cardinal) {
+	public Probe(int axis_x, int axis_y, CardinalPoints orientation) {
 		this.axis_x = axis_x;
 		this.axis_y = axis_y;
-		this.cardinal = cardinal;
+		this.orientation = orientation;
 	}
 
 	public int getAxis_x() {
 		return axis_x;
 	}
 
-	public void setAxis_x(int eixoX) {
-		this.axis_x = eixoX;
+	public void setAxis_x(int axis_x) {
+		this.axis_x = axis_x;
 	}
 
 	public int getAxis_y() {
@@ -27,12 +29,13 @@ public class Probe {
 		this.axis_y = axis_y;
 	}
 
-	public char getCardinal() {
-		return cardinal;
+	public CardinalPoints getOrientation() {
+		return orientation;
 	}
 
-	public void setCardinal(char cardinal) {
-		this.cardinal = cardinal;
+	public void setOrientation(CardinalPoints orientation) {
+		this.orientation = orientation;
 	}
-
+	
+	
 }

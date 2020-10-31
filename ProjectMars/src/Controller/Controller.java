@@ -33,12 +33,12 @@ public class Controller {
 		orientation + " e "+ command);
 		
 		if(command == Commands.M) {
-//			moveForward(axis_x, axis_y, orientation);
+			moveForward(axis_x, axis_y, orientation);
 		} else {
 			changeOrientation(orientation,command);
 		}		
 	}
-/*	
+	
 	public void moveForward(int axis_x, int axis_y, CardinalPoints orientation) {
 		switch(orientation) {
 			case N:
@@ -57,8 +57,11 @@ public class Controller {
 				axis_x += 1;
 				break;
 		}
+		
 	}
-*/	
+	
+	
+	
 	public CardinalPoints turnToRight(CardinalPoints orientation) {
 		Map<CardinalPoints,CardinalPoints> turnToRight = new HashMap<>();
 		

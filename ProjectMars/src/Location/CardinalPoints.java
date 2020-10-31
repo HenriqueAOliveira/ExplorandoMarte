@@ -6,5 +6,14 @@ package Location;
  * W = OESTE
  */
 public enum CardinalPoints {
-	N,S,E,W;
+	N("N"),
+	S("S"),
+	E("E"),
+	W("W");
+	
+	private String orientation;
+	
+	CardinalPoints(String orientation){
+		this.orientation = orientation;
+	}
 }
