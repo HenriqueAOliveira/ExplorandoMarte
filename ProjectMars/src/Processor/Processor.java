@@ -1,25 +1,29 @@
-package Controller;
+package Processor;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import Location.CardinalPoints;
 
-public class Controller {
+public class Processor {
 	
+	private int posProcessing_x;
+	private int posProcessing_y;
+	private String posProcessing_orient;
 /**
  * Inverter a orientação da sonda quando receber um L ou R como comando
  */
 	
-	public CardinalPoints changeOrientation(CardinalPoints orientation, 
+	public void changeOrientation(CardinalPoints orientation, 
 			Commands command) {
+		
 		if(command == Commands.L) {
 			orientation = turnToLeft(orientation);
 		} else {
 			orientation = turnToRight(orientation);
 		}
 		System.out.println("A nova orientação e: "+ orientation);
-		return orientation;
+		//setPosProcessing_orient(orientation);
 	}
 
 /**
@@ -57,7 +61,8 @@ public class Controller {
 				axis_x += 1;
 				break;
 		}
-		
+		setPosProcessing_x(axis_x);
+		setPosProcessing_y(axis_y);
 	}
 	
 	
@@ -83,4 +88,31 @@ public class Controller {
 		
 		return turnToLeft.get(orientation);
 	}
+
+	public int getPosProcessing_x() {
+		return posProcessing_x;
+	}
+
+	public void setPosProcessing_x(int posProcessing_x) {
+		this.posProcessing_x = posProcessing_x;
+	}
+
+	public int getPosProcessing_y() {
+		return posProcessing_y;
+	}
+
+	public void setPosProcessing_y(int posProcessing_y) {
+		this.posProcessing_y = posProcessing_y;
+	}
+
+	public String getPosProcessing_orient() {
+		return posProcessing_orient;
+	}
+
+	public void setPosProcessing_orient(String posProcessing_orient) {
+		this.posProcessing_orient = posProcessing_orient;
+	}
+	
+	
+	
 }

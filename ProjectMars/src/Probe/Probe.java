@@ -1,8 +1,12 @@
 package Probe;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Location.CardinalPoints;
 
 public class Probe {
+	
 	private int axis_x;
 	private int axis_y;
 	private CardinalPoints orientation;
@@ -36,6 +40,5 @@ public class Probe {
 	public void setOrientation(CardinalPoints orientation) {
 		this.orientation = orientation;
 	}
-	
 	
 }
