@@ -48,6 +48,13 @@ public class Processor {
 				axis_x += 1;
 				break; 		
  		}
+ // Tratamento quando alguma borda e' alcancada. Nesse caso, o valor da borda é setado 		
+ 		if(axis_x > 5) {
+ 			axis_x = 5; 
+ 		} else if(axis_x < 0){
+ 			axis_x = 0;
+ 		}
+ 		
  		return axis_x;
  	}
  	
@@ -60,6 +67,12 @@ public class Processor {
 			case S:
 				axis_y -= 1;
 				break;
+ 		}
+// Tratamento quando alguma borda e' alcancada. Nesse caso, o valor da borda é setado 		
+ 		if(axis_y > 5) {
+ 			axis_y = 5; 
+ 		} else if(axis_y < 0){
+ 			axis_y = 0;
  		}
  		return axis_y;
  	}	
