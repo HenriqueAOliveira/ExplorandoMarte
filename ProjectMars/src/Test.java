@@ -1,22 +1,19 @@
-import Location.CardinalPoints;
-import Processor.Commands;
-import Processor.Processor;
+import java.util.Scanner;
+
+import Location.*;
+import Probe.Probe;
+import Processor.*;
 
 public class Test {
 
 	public static void main(String[] args) {
-		int x = 1; 
-		int y = 2; 
-//		CardinalPoints orientation = CardinalPoints.N; 
-//		Commands command = Commands.L;
-		
-		String direction = "N"; String command2 = "M";
-		CardinalPoints orientation = CardinalPoints.valueOf(direction);
-		Commands command = Commands.valueOf(command2);
-		
-		Processor controller = new Processor();
-		controller.processCommand(x, y, orientation, command);
-		System.out.println(controller.getPosProcessing_x() + " " 
-		+ controller.getPosProcessing_y() + " " + controller.getPosProcessing_orient());
-	}
+		Scanner scanner = new Scanner(System.in);
+		String coordinate = scanner.nextLine();
+
+		int coord_x = Integer.parseInt(String.valueOf(coordinate.charAt(0)));
+		int coord_y = Integer.parseInt(String.valueOf(coordinate.charAt(1)));
+		CardinalPoints coord_direct = 
+				CardinalPoints.valueOf(String.valueOf(coordinate.charAt(2)));	
+		}
+
 }

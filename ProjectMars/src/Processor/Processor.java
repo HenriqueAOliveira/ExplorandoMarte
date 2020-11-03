@@ -2,19 +2,16 @@ package Processor;
 
 import java.util.HashMap;
 import java.util.Map;
-
+import Probe.Probe;
 import Location.CardinalPoints;
 
 public class Processor {
 	
-	private int posProcessing_x;
-	private int posProcessing_y;
-	private String posProcessing_orient;
 /**
  * Inverter a orientação da sonda quando receber um L ou R como comando
  */
 	
-	public void changeOrientation(CardinalPoints orientation, 
+	private static CardinalPoints changeOrientation(CardinalPoints orientation, 
 			Commands command) {
 		
 		if(command == Commands.L) {
@@ -22,29 +19,40 @@ public class Processor {
 		} else {
 			orientation = turnToRight(orientation);
 		}
-		System.out.println("A nova orientação e: "+ orientation);
-		//setPosProcessing_orient(orientation);
+
+		return orientation;
 	}
 
 /**
  * Processamento do comando e, em caso de L e R, alterar orientacao da sonda	
  */
 	
-	public void processCommand(int axis_x, int axis_y, CardinalPoints orientation, 
+	public static void processCommand(Probe probe, int axis_x, int axis_y, CardinalPoints orientation, 
 			Commands command) {
 		
-		System.out.println("A orientacao e o comando e, respectivamente,  "+
-		orientation + " e "+ command);
-		
 		if(command == Commands.M) {
-			moveForward(axis_x, axis_y, orientation);
+			probe.setAxis_x(moveForward_x(axis_x, orientation));
+			probe.setAxis_y(moveForward_y(axis_y, orientation));
 		} else {
-			changeOrientation(orientation,command);
+			probe.setOrientation(changeOrientation(orientation,command));
 		}		
-	}
+	}		
 	
-	public void moveForward(int axis_x, int axis_y, CardinalPoints orientation) {
-		switch(orientation) {
+	private static int moveForward_x(int axis_x, CardinalPoints orientation){
+ 		switch(orientation) {
+			case W:
+				axis_x -= 1;
+				break;
+			
+			case E:
+				axis_x += 1;
+				break; 		
+ 		}
+ 		return axis_x;
+ 	}
+ 	
+	private static int moveForward_y(int axis_y, CardinalPoints orientation){
+ 		switch(orientation) {
 			case N:
 				axis_y += 1;
 				break;
@@ -52,22 +60,12 @@ public class Processor {
 			case S:
 				axis_y -= 1;
 				break;
-			
-			case W:
-				axis_x -= 1;
-				break;
-			
-			case E:
-				axis_x += 1;
-				break;
-		}
-		setPosProcessing_x(axis_x);
-		setPosProcessing_y(axis_y);
-	}
+ 		}
+ 		return axis_y;
+ 	}	
+ 	
 	
-	
-	
-	public CardinalPoints turnToRight(CardinalPoints orientation) {
+	private static CardinalPoints turnToRight(CardinalPoints orientation) {
 		Map<CardinalPoints,CardinalPoints> turnToRight = new HashMap<>();
 		
 		turnToRight.put(CardinalPoints.N, CardinalPoints.E);
@@ -78,7 +76,7 @@ public class Processor {
 		return turnToRight.get(orientation);
 	}
 	
-	public CardinalPoints turnToLeft(CardinalPoints orientation) {
+	private static CardinalPoints turnToLeft(CardinalPoints orientation) {
 		Map<CardinalPoints,CardinalPoints> turnToLeft = new HashMap<>();
 		
 		turnToLeft.put(CardinalPoints.N, CardinalPoints.W);
@@ -88,31 +86,5 @@ public class Processor {
 		
 		return turnToLeft.get(orientation);
 	}
-
-	public int getPosProcessing_x() {
-		return posProcessing_x;
-	}
-
-	public void setPosProcessing_x(int posProcessing_x) {
-		this.posProcessing_x = posProcessing_x;
-	}
-
-	public int getPosProcessing_y() {
-		return posProcessing_y;
-	}
-
-	public void setPosProcessing_y(int posProcessing_y) {
-		this.posProcessing_y = posProcessing_y;
-	}
-
-	public String getPosProcessing_orient() {
-		return posProcessing_orient;
-	}
-
-	public void setPosProcessing_orient(String posProcessing_orient) {
-		this.posProcessing_orient = posProcessing_orient;
-	}
-	
-	
-	
+		
 }

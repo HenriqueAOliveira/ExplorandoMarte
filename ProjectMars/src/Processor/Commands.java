@@ -7,10 +7,10 @@ package Processor;
  */
 
 public enum Commands {
-	R("R"),
-	L("L"),
-	M("M");
-	
+	R,
+	L,
+	M;
+/*	
 	private String command;
 	
 	Commands(String command){
@@ -19,5 +19,5 @@ public enum Commands {
 	
 	public String getCommand() {
 		return this.command;
-	}
+	} */
 }
