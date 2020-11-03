@@ -13,20 +13,16 @@ public class Main {
 	public static void main(String[] args) {
 
 		List<Probe> listOfProbes = new ArrayList<>();
-		
 		Scanner scanner = new Scanner(System.in);
-		
-		String border = scanner.nextLine();
-		
+	
+		String border = scanner.nextLine();	
 		int border_x = Integer.parseInt(String.valueOf(border.charAt(0)));		
 		int border_y = Integer.parseInt(String.valueOf(border.charAt(1)));
-		
 		
 /**
  * Entrada das sondas lançadas no espaco, suas coordenadas e direcoes e o processamento 
  * dos comandos para reorientacao		
  */
-		
 		while(scanner.hasNextLine()) {
 			String coordinate = scanner.nextLine();
 			
@@ -48,6 +44,7 @@ public class Main {
 				Processor.processCommand(probe, probe.getAxis_x(), probe.getAxis_y(), 
 						probe.getOrientation(), currentCmd);
 			}
+			
 			listOfProbes.add(probe);
 		}
 		
