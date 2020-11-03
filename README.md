@@ -19,16 +19,3 @@ A posição é representada por dois inteiros e uma letra separados por espaços
 
 SAÍDA
 A saída deverá contar uma linha para cada sonda, na mesma ordem de entrada, indicando sua coordenada final e direção.
-
-Exemplos de Entrada e Saída:
-####Entrada de Teste:
-
-5 5
-1 2 N
-LMLMLMLMM
-3 3 E
-MMRMMRMRRM
-
-Saída esperada:
-1 3 N
-5 1 E
