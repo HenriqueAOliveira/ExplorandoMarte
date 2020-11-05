@@ -16,7 +16,7 @@ public class Processor {
 		
 		if(command == Commands.L) {
 			orientation = turnToLeft(orientation);
-		} else if(command == Commands.R){
+		} else {
 			orientation = turnToRight(orientation);
 		}
 
