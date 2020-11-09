@@ -34,6 +34,8 @@ public class Main {
 			int coord_y = Integer.parseInt(String.valueOf(coordinate.charAt(1)));
 			CardinalPoints coord_direct = 
 					CardinalPoints.valueOf(String.valueOf(coordinate.charAt(2)));
+			
+			
 			Probe probe = new Probe(coord_x, coord_y, coord_direct);
 			
 			String cmdInSequence = scanner.nextLine();

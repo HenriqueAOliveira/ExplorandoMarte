@@ -1,6 +1,7 @@
 package Processor;
 
 import java.util.HashMap;
+
 import java.util.Map;
 import Probe.Probe;
 import Location.CardinalPoints;
@@ -10,7 +11,7 @@ public class Processor {
 /**
  * Inverter a orientação da sonda quando receber um L ou R como comando
  */
-	
+
 	private static CardinalPoints changeOrientation(CardinalPoints orientation, 
 			Commands command) {
 		
