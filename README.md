@@ -8,10 +8,8 @@ O planalto é divido numa malha para simplificar a navegação. Um exemplo de po
 
 Para controlar as sondas, a NASA envia uma simples sequência de letras. As letras possíveis são "L", "R" e "M". Destas, "L" e "R" fazem a sonda virar 90 graus para a esquerda ou direita, respectivamente, sem mover a sonda. "M" faz com que a sonda mova-se para a frente um ponto da malha, mantendo a mesma direção.
 
-Nesta malha o ponto ao norte de (x,y) é sempre (x, y+1).
-
 ## Entrada
-A primeira linha da entrada de dados é a coordenada do ponto superior-direito da malha do planalto. Lembrando que a inferior esquerda sempre será (0,0).
+A primeira linha da entrada de dados é a coordenada do ponto superior-direito da malha do planalto. Lembrando que a inferior esquerda sempre será (0,0) e a superior direita foi limitada a (5,5).
 
 O resto da entrada será informação das sondas que foram implantadas. Cada sonda é representada por duas linhas. A primeira indica sua posição inicial e a segunda uma série de instruções indicando para a sonda como ela deverá explorar o planalto.
 
@@ -19,3 +17,32 @@ A posição é representada por dois inteiros e uma letra separados por espaços
 
 ## Saída
 A saída deverá contar uma linha para cada sonda, na mesma ordem de entrada, indicando sua coordenada final e direção.
+
+## Iniciação do Projeto
+
+Para iniciar o projeto do Controlador de Sondas, abra um terminal e execute os seguintes comandos:
+
+```
+git clone git@github.com:HenriqueAOliveira/ExplorandoMarte.git
+cd ExplorandoMarte/
+java -jar ExplorandoMarte.jar
+```
+
+### Observações
+* O par ordenado (x,y) tem como limite de 0 à 5
+* Ao alcançar uma borda, seja em x ou y, a sonda não se moverá caso o comando seja para fora das extremidades
+
+### Exemplo de Entrada
+```
+55
+12N
+LMLMLMLMM
+13N
+MRR
+```
+
+### Saída
+```
+1 3 N
+1 4 S
+```
